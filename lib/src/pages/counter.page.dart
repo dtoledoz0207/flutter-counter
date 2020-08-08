@@ -26,14 +26,21 @@ class _CounterPageState extends State<CounterPage> {
           ],
         )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _counter++;
-          });
-        },
-        child: Icon(Icons.add_circle),
-      ),
+      floatingActionButton: _createFloatingButtons(),
+    );
+  }
+
+  Widget _createFloatingButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox(width: 32.0),
+        FloatingActionButton(child: Icon(Icons.restore), onPressed: () {},),
+        Expanded(child: SizedBox()),
+        FloatingActionButton(child: Icon(Icons.remove_circle), onPressed: () {},),
+        SizedBox(width: 10.0),
+        FloatingActionButton(child: Icon(Icons.add_circle), onPressed: () {},)
+      ],
     );
   }
 }
